@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>글</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/dist/postView.js" defer></script>
+    <style>
+        .card{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- nav.html 파일의 navbar fragment를 포함 -->
+    <div th:replace="~{fragments/nav :: navbar}"></div>
+    <!-- nav.html 파일의 navbar fragment를 포함 -->
+
+    <div class="container my-5">
+        <div class="card shadow-sm" id="post-div">
+            <div class="card-header bg-primary text-white">
+                <h2 class="card-title mb-0" id="titleTv"></h2>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <p class="card-text mb-0" id="authorTv"></p>
+                </div>
+                <hr>
+                <p class="card-text" id="bodyTv"></p>
+                <div class="d-flex justify-content-center align-items-center border rounded p-3 mb-3 mx-auto mt-5">
+                    <div class="me-2">
+                        <span style="font-size: 30px;" id="upVotesTv"></span>
+                    </div>
+                    <button class="btn btn-success me-2" id="likeBtn" style="font-size: 30px; width: 130px;">추천</button>
+                    <button class="btn btn-danger me-2" id="dislikeBtn" style="font-size: 30px; width: 130px;">비추천</button>
+                    <div class="me-2">
+                        <span style="font-size: 30px;" id="dislikeVotesTv"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-5">
+            <a href id="backBtn" class="btn btn-secondary btn-lg me-2" style="padding: 10px 20px;">돌아가기</a>
+            <a href id="modifyBtn" class="btn btn-primary btn-lg me-2" style="padding: 10px 20px;">수정</a>
+            <a href id="deleteBtn" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#postPasswordModal" style="padding: 10px 20px;">삭제</a>
+        </div>
+
+        <!-- 댓글 작성 플랫폼-->
+        <div class="container mt-5">
+
+            <div class="mt-2" id="cardListDiv"></div>
+
+            <div class="card mt-2">
+                <div class="card-body">
+                    <form id="commentForm">
+                        <div class="form-group row">
+                            <label for="comment-author" class="col-sm-2 col-form-label">작성자 이름</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="comment-author" placeholder="작성자 이름을 입력하세요" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="comment-password" class="col-sm-2 col-form-label">비밀번호</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="comment-password" placeholder="비밀번호를 입력하세요" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment-body">댓글 내용</label>
+                            <textarea class="form-control" id="comment-body" rows="3" placeholder="댓글 내용을 입력하세요" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">댓글 작성</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal-->
+    <!-- modal.html 파일의 navbar fragment를 포함 -->
+    <div th:replace="~{fragments/deleteModal :: commentDeleteModal}"></div>
+    <div th:replace="~{fragments/deleteModal :: postDeleteModal}"></div>
+    <!-- modal.html 파일의 navbar fragment를 포함 -->
+</body>
+</html>

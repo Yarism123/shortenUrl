@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>URL 단축 사이트</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/bootstrap.js"></script>
+    <script type="module" src="/js/postListJs.js" defer></script>
+</head>
+<body>
+    <!-- nav.html 파일의 navbar fragment를 포함 -->
+    <div th:replace="~{fragments/nav :: navbar}"></div>
+
+    <table class="table mt-5">
+        <thead class="table-primary table-bordered">
+            <th scope="col">ID</th>
+            <th scope="col">제목</th>
+            <th scope="col">글쓴이</th>
+            <th scope="col">작성일</th>
+            <th scope="col">조회수</th>
+            <th scope="col">추천</th>
+        </thead>
+        <tbody class="table-group-divider">
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+        <a href="/posting" class="btn btn-primary btn-lg">글쓰기</a> <!-- 큰 버튼 -->
+    </div>
+
+</body>
+</html>

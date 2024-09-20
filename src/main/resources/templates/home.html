@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>URL 단축 사이트</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/bootstrap.js"></script>
+    <script type="module" src="/js/homeJs.js" defer></script>
+</head>
+<body>
+    <!-- nav.html 파일의 navbar fragment를 포함 -->
+    <div th:replace="~{fragments/nav :: navbar}"></div>
+    <form method="post" id="urlForm">
+        <div class="input-group mt-5 mx-auto w-50">
+            <input type="url" id="originalUrl" class="form-control mx-3 " placeholder="Input your url" aria-label="Example text with button addon" aria-describedby="button-addon1" required>
+            <button class="btn btn-outline-secondary text-black fw-bold bg-warning" type="submit" id="button-addon1">단축</button>
+        </div>
+    </form>
+
+    <div class="input-group mt-5 mx-auto w-50">
+        <input type="text" id="shortenUrl" class="form-control mx-3 fw-bold" placeholder="show shortenURL" aria-label="Example text with button addon" aria-describedby="button-addon1" readonly>
+        <button class="btn btn-outline-secondary text-black fw-bold bg-info" type="button" id="button-addon2">복사</button>
+    </div>
+</body>
+</html>

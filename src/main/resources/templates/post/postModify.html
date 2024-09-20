@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>글쓰기</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/bootstrap.js"></script>
+    <script type="module" src="/js/postModify/passwordCheck.js" defer></script>
+</head>
+<body>
+    <!-- nav.html 파일의 navbar fragment를 포함 -->
+    <div th:replace="~{fragments/nav :: navbar}"></div>
+    <!-- nav.html 파일의 navbar fragment를 포함 -->
+
+    <div class="container mt-5">
+        <div id="passwordContainer" class="mb-4">
+            <h2 class="text-center mb-4">비밀번호 입력</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form id="postModifyPasswordCheckForm">
+                        <div class="mb-3">
+                            <input type="password" id="postPasswordInput" class="form-control" placeholder="비밀번호" minlength="2" maxlength="6" required>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">확인</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 게시판 글쓰기 폼 -->
+        <div id="postFormContainer" class="form-container" style="display:none;">
+            <h2 class="text-center mb-4">게시판 글쓰기</h2>
+            <form id="postForm" method="post">
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" id="author" class="form-control" placeholder="작성자" aria-label="author" minlength="2" maxlength="7" required>
+                    </div>
+                    <div class="col">
+                        <input type="password" id="password" class="form-control" placeholder="비밀번호" aria-label="password" minlength="4" maxlength="6" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" id="title" class="form-control" placeholder="제목" aria-label="title" minlength="2" maxlength="50" required>
+                </div>
+                <div class="mb-3">
+                    <textarea id="body" style="height: 300px" class="form-control" placeholder="내용" minlength="1" aria-label="body" required></textarea>
+                </div>
+                <div class="row">
+                    <div class="col text-end">
+                        <div class="d-flex justify-content-end">
+                            <a href="/static" class="btn btn-secondary me-2">취소</a>
+                            <button type="submit" class="btn btn-primary">수정</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

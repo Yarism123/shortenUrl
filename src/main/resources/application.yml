@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: shortenURLs
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/shortenURL
+    username: sa
+    password: 1234
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false

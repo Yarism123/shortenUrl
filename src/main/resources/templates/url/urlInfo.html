@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>URL 정보확인</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/bootstrap.js"></script>
+    <script type="module" src="/js/urlInfoJs.js" defer></script>
+</head>
+    <body>
+        <!-- nav.html 파일의 navbar fragment를 포함 -->
+        <div th:replace="~{fragments/nav :: navbar}"></div>
+        <form method="get" id="urlInfoForm">
+            <div class="input-group mt-5 mx-auto w-50">
+                <input type="url" id="shortenUrl_input" class="form-control mx-3 " placeholder="Input shortenUrl" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <button class="btn btn-outline-secondary text-black fw-bold bg-warning" type="submit" id="button-addon1">정보 확인</button>
+            </div>
+        </form>
+
+        <ul class="list-group mt-5 mx-auto w-50">
+            <li class="list-group-item">단축 URL: <span class="text-warning" id="span_shortUrl"></span></li>
+            <li class="list-group-item">원본 URL: <span class="text-primary" id="span_originalUrl"></span></li>
+            <li class="list-group-item">생성 날짜: <span class="text-primary" id="span_date"></span></li>
+            <li class="list-group-item">호출 횟수: <span class="text-primary" id="span_callCount"></span></li>
+        </ul>
+    </body>
+</html>
